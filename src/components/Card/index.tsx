@@ -13,11 +13,29 @@ export function Card({tec, removeTec, isChecked}){
         activeOpacity={0.5}
         style={styles.buttonCheck}
         onPress={isChecked2}
-      >
-        <Image source={require('../../../assets/check.png')} style={styles.check}/>
+      > 
+        {
+          tec.checked === true && (
+            <Image source={require('../../../assets/checked.png')} style={styles.check}/>
+          )
+        }
+        {
+          tec.checked === false && (
+            <Image source={require('../../../assets/check.png')} style={styles.check}/>
+          )
+        }
       </TouchableOpacity>
 
-      <Text style={styles.textCard}>{tec.name}</Text>
+      {
+        tec.checked === true && (
+          <Text style={styles.textCardLine}>{tec.name}</Text>
+        )
+      }
+      {
+        tec.checked === false && (
+          <Text style={styles.textCard}>{tec.name}</Text>   
+        )
+      }
 
       <TouchableOpacity
          activeOpacity={0.5}
@@ -69,5 +87,13 @@ const styles = StyleSheet.create({
     color: '#F2F2F2',
     width: 235,
     lineHeight: 19.6
+  },
+  textCardLine: {
+    fontSize: 14,
+    fontWeight: '400',
+    color: '#808080',
+    width: 235,
+    lineHeight: 19.6,
+    textDecorationLine: "line-through"
   }
 })

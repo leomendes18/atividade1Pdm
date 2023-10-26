@@ -4,7 +4,6 @@ import { Header } from './src/components/Header';
 import { Input } from './src/components/Input';
 import { Section } from './src/components/Section';
 import { useState } from 'react';
-import { Card } from './src/components/Card';
 
 let id = 0
 export default function App() {
@@ -23,7 +22,7 @@ export default function App() {
       if(tec.id !== id){
         return tec
       } else{
-        if(tec.checked == true){
+        if(tec.checked === true){
           setConcluido(concluido -= 1)
         }
       }

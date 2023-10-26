@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: '#262626',
+    color: '#F2F2F2',
     width: 260,
     height: 50,
     padding: 16,
