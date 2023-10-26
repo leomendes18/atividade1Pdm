@@ -1,26 +1,37 @@
-import { View, StyleSheet, Text } from "react-native"
+import { View, StyleSheet, Text, FlatList } from "react-native"
 import { NoCard } from "../NoCard"
 import { Card } from "../Card"
 
-export function Section(){
+export function Section({arrayTec, removeTec, concluido, isChecked}){
   return (
     <View style={styles.boxSection}>
       <View style={styles.boxHeader}>
         <View style={styles.boxCriadas}>
           <Text style={styles.criadas}>Criadas</Text>
           <View style={styles.boxTotalCriada}>
-            <Text style={styles.totalCriada}>0</Text>
+            <Text style={styles.totalCriada}>{arrayTec.length}</Text>
           </View>
         </View>
         <View style={styles.boxConcluidas}>
           <Text style={styles.concluidas}>Concluídas</Text>
           <View style={styles.boxTotalConcluida}>
-            <Text style={styles.totalConcluida}>0</Text>
+            <Text style={styles.totalConcluida}>{concluido}</Text>
           </View>
         </View>
       </View>
-
-      <Card />
+      {
+        arrayTec.length === 0 && (
+          <NoCard />
+        )
+      }
+      {
+        (
+          <FlatList
+            data={arrayTec}
+            renderItem={({ item }) => <Card tec={item} removeTec={removeTec} isChecked={isChecked}/>}
+          />
+        )
+      }
     </View>
   )
 }

@@ -1,18 +1,28 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
-export function Card(){
+export function Card({tec, removeTec, isChecked}){
+  const removeTec2 = () => {
+    removeTec(tec.id)
+  }
+  const isChecked2 = () => {
+    isChecked(tec.id)
+  }
   return (
     <View style={styles.boxCard}>
       <TouchableOpacity
         activeOpacity={0.5}
         style={styles.buttonCheck}
+        onPress={isChecked2}
       >
         <Image source={require('../../../assets/check.png')} style={styles.check}/>
       </TouchableOpacity>
-      <Text style={styles.textCard}>Integer urna interdum massa libero auctor neque turpis turpis semper.</Text>
+
+      <Text style={styles.textCard}>{tec.name}</Text>
+
       <TouchableOpacity
          activeOpacity={0.5}
          style={styles.buttonLixeira}
+         onPress={removeTec2}
       >
         <Image source={require('../../../assets/lixeira.png')} style={styles.lixeira}/>
       </TouchableOpacity>
@@ -30,7 +40,8 @@ const styles = StyleSheet.create({
     width: 327,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#333333'
+    borderColor: '#333333',
+    marginBottom: 10
   },
   buttonCheck: {
     width: 24,
@@ -57,7 +68,6 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#F2F2F2',
     width: 235,
-    height: 40,
     lineHeight: 19.6
   }
 })

@@ -1,14 +1,15 @@
 import { View, StyleSheet, TextInput, TouchableOpacity, Text, Image } from "react-native";
 
-export function Input(){
+export function Input({setTec, handle}){
   return (
     <View style={styles.viewInput}>
       <TextInput 
         style={styles.input}
         placeholder="Adicione uma nova tecnologia"
         placeholderTextColor={'#808080'}
+        onChangeText={setTec}
       />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handle}>
          <Image source={require('../../../assets/iconMore.png')} />
       </TouchableOpacity>
     </View>

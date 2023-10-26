@@ -16,8 +16,7 @@ const styles = StyleSheet.create({
   boxNoCard: {
     alignItems: 'center',
     borderTopWidth: 1,
-    borderTopColor: '#333333',
-    marginTop: 20
+    borderTopColor: '#333333'
   },
   boxText: {
     marginTop: 20,
