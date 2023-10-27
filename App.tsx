@@ -1,14 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View} from 'react-native';
 import { Header } from './src/components/Header';
 import { Input } from './src/components/Input';
 import { Section } from './src/components/Section';
 import { useState } from 'react';
 
+interface Tec{
+  id: number, 
+  name: string, 
+  checked: boolean
+}
 let id = 0
 export default function App() {
   const [tec, setTec] = useState('')
-  const [arrayTec, setArrayTec] = useState<object[]>([])
+  const [arrayTec, setArrayTec] = useState<Tec[]>([])
   let[concluido, setConcluido] = useState(0)
 
   const handleTec = () => {
@@ -17,7 +22,7 @@ export default function App() {
     setArrayTec(newList)
     id += 1
   }
-  const removeTec = (id) => {
+  const removeTec = (id : number) => {
     const newList = arrayTec.filter((tec) => {
       if(tec.id !== id){
         return tec
@@ -29,7 +34,7 @@ export default function App() {
     })
     setArrayTec(newList)
   }
-  const isChecked = (id) => {
+  const isChecked = (id : number) => {
     const newList = arrayTec.map((tec) => {
       if(tec.id === id){
         const newTec = {

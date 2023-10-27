@@ -1,6 +1,12 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
-export function Card({tec, removeTec, isChecked}){
+interface Props{
+  tec: {id: number, name?: string, checked: boolean},
+  removeTec: (id: number) => void,
+  isChecked: (id: number) => void
+}
+
+export function Card({tec, removeTec, isChecked}: Props){
   const removeTec2 = () => {
     removeTec(tec.id)
   }

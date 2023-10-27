@@ -1,8 +1,19 @@
 import { View, StyleSheet, Text, FlatList } from "react-native"
 import { NoCard } from "../NoCard"
 import { Card } from "../Card"
+interface Tec{
+  id: number, 
+  name?: string, 
+  checked: boolean
+}
+interface Props{
+  arrayTec: Tec[],
+  removeTec: (id: number) => void,
+  concluido: number,
+  isChecked: (id: number) => void
+}
 
-export function Section({arrayTec, removeTec, concluido, isChecked}){
+export function Section({arrayTec, removeTec, concluido, isChecked}: Props){
   return (
     <View style={styles.boxSection}>
       <View style={styles.boxHeader}>

@@ -1,6 +1,10 @@
-import { View, StyleSheet, TextInput, TouchableOpacity, Text, Image } from "react-native";
+import { View, StyleSheet, TextInput, TouchableOpacity, Image } from "react-native";
 
-export function Input({setTec, handle}){
+interface Props{
+  setTec: React.Dispatch<React.SetStateAction<string>>
+  handle: () => void
+}
+export function Input({setTec, handle}: Props){
   return (
     <View style={styles.viewInput}>
       <TextInput 
